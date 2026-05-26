@@ -37,6 +37,7 @@
         --sans: "Geist", system-ui, sans-serif;
         --mono: "JetBrains Mono", monospace;
       }
+
       *,
       *::before,
       *::after {
@@ -44,9 +45,11 @@
         padding: 0;
         box-sizing: border-box;
       }
+
       html {
         scroll-behavior: smooth;
       }
+
       body {
         background: var(--bg);
         color: var(--text);
@@ -57,6 +60,8 @@
         overflow-x: hidden;
         cursor: none;
       }
+
+      /* ===== CUSTOM CURSOR ===== */
       .cursor-dot,
       .cursor-ring {
         position: fixed;
@@ -65,6 +70,10 @@
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
+        transition:
+          transform 0.15s ease,
+          width 0.2s ease,
+          height 0.2s ease;
         mix-blend-mode: difference;
       }
       .cursor-dot {
@@ -99,6 +108,8 @@
           cursor: auto;
         }
       }
+
+      /* ===== GRAIN OVERLAY ===== */
       body::after {
         content: "";
         position: fixed;
@@ -108,6 +119,8 @@
         opacity: 0.04;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       }
+
+      /* ===== AURORA BG ===== */
       .aurora {
         position: fixed;
         inset: 0;
@@ -151,6 +164,8 @@
           transform: translate(-50px, 100px) scale(0.9);
         }
       }
+
+      /* ===== CONTAINER ===== */
       .container {
         max-width: 1280px;
         margin: 0 auto;
@@ -158,11 +173,14 @@
         position: relative;
         z-index: 2;
       }
+
       @media (max-width: 640px) {
         .container {
           padding: 0 1.25rem;
         }
       }
+
+      /* ===== NAV ===== */
       .nav {
         position: fixed;
         top: 1.5rem;
@@ -179,6 +197,7 @@
         border-radius: 999px;
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
       }
+
       .nav a {
         color: var(--text-2);
         text-decoration: none;
@@ -189,10 +208,12 @@
         transition: all 0.25s;
         letter-spacing: -0.01em;
       }
+
       .nav a:hover {
         color: var(--text);
         background: rgba(255, 255, 255, 0.06);
       }
+
       @media (max-width: 640px) {
         .nav {
           top: 1rem;
@@ -204,6 +225,8 @@
           font-size: 0.72rem;
         }
       }
+
+      /* ===== HERO ===== */
       .hero {
         min-height: 100vh;
         display: flex;
@@ -212,6 +235,7 @@
         padding: 8rem 0 6rem;
         position: relative;
       }
+
       .hero-meta {
         display: flex;
         align-items: center;
@@ -223,6 +247,7 @@
         letter-spacing: 0.05em;
         animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
+
       .hero-meta .dot {
         width: 6px;
         height: 6px;
@@ -231,6 +256,7 @@
         box-shadow: 0 0 12px var(--cyan);
         animation: pulse 2s infinite;
       }
+
       @keyframes pulse {
         0%,
         100% {
@@ -240,6 +266,7 @@
           opacity: 0.3;
         }
       }
+
       .hero-title {
         font-family: var(--serif);
         font-weight: 300;
@@ -249,20 +276,24 @@
         margin-bottom: 2rem;
         font-variation-settings: "opsz" 144;
       }
+
       .hero-title .line {
         display: block;
         overflow: hidden;
       }
+
       .hero-title .line span {
         display: inline-block;
         animation: reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
+
       .hero-title .line:nth-child(1) span {
         animation-delay: 0.1s;
       }
       .hero-title .line:nth-child(2) span {
         animation-delay: 0.25s;
       }
+
       .hero-title .italic {
         font-style: italic;
         font-weight: 400;
@@ -271,6 +302,7 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
       .hero-description {
         font-size: clamp(1rem, 1.5vw, 1.15rem);
         color: var(--text-2);
@@ -279,12 +311,14 @@
         margin-bottom: 3rem;
         animation: reveal 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
+
       .hero-cta {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
         animation: reveal 1s 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
+
       .btn {
         display: inline-flex;
         align-items: center;
@@ -298,6 +332,7 @@
         border: 1px solid transparent;
         letter-spacing: -0.01em;
       }
+
       .btn-primary {
         background: var(--text);
         color: var(--bg);
@@ -308,6 +343,7 @@
         border-color: var(--line-strong);
         transform: translateY(-2px);
       }
+
       .btn-secondary {
         background: transparent;
         color: var(--text);
@@ -317,6 +353,7 @@
         background: rgba(255, 255, 255, 0.05);
         transform: translateY(-2px);
       }
+
       .btn svg {
         width: 14px;
         height: 14px;
@@ -325,18 +362,22 @@
       .btn:hover svg {
         transform: translate(2px, -2px);
       }
+
+      /* hero visual side */
       .hero-grid {
         display: grid;
         grid-template-columns: 1.3fr 1fr;
         gap: 4rem;
         align-items: center;
       }
+
       @media (max-width: 900px) {
         .hero-grid {
           grid-template-columns: 1fr;
           gap: 3rem;
         }
       }
+
       .hero-card {
         background: var(--surface);
         border: 1px solid var(--line);
@@ -346,6 +387,7 @@
         overflow: hidden;
         animation: reveal 1.2s 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
+
       .hero-card::before {
         content: "";
         position: absolute;
@@ -361,6 +403,7 @@
           transparent
         );
       }
+
       .card-label {
         font-family: var(--mono);
         font-size: 0.7rem;
@@ -369,18 +412,21 @@
         letter-spacing: 0.1em;
         margin-bottom: 1rem;
       }
+
       .stat-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
         margin-bottom: 1.5rem;
       }
+
       .stat {
         padding: 1rem;
         background: var(--bg-2);
         border: 1px solid var(--line);
         border-radius: 14px;
       }
+
       .stat-value {
         font-family: var(--serif);
         font-weight: 400;
@@ -393,15 +439,18 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
+
       .stat-label {
         font-size: 0.78rem;
         color: var(--text-2);
       }
+
       .tech-stack {
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
       }
+
       .tech-pill {
         font-family: var(--mono);
         font-size: 0.72rem;
@@ -411,6 +460,8 @@
         color: var(--violet-2);
         border-radius: 999px;
       }
+
+      /* ===== MARQUEE ===== */
       .marquee {
         overflow: hidden;
         border-top: 1px solid var(--line);
@@ -419,12 +470,14 @@
         margin: 4rem 0;
         background: var(--bg-2);
       }
+
       .marquee-inner {
         display: flex;
         gap: 3rem;
         animation: scroll 40s linear infinite;
         white-space: nowrap;
       }
+
       .marquee-item {
         font-family: var(--serif);
         font-style: italic;
@@ -434,11 +487,13 @@
         align-items: center;
         gap: 3rem;
       }
+
       .marquee-item::after {
         content: "✦";
         color: var(--violet);
         font-style: normal;
       }
+
       @keyframes scroll {
         from {
           transform: translateX(0);
@@ -447,14 +502,18 @@
           transform: translateX(-50%);
         }
       }
+
+      /* ===== SECTIONS ===== */
       section {
         padding: 7rem 0;
         position: relative;
       }
+
       .section-header {
         margin-bottom: 4rem;
         max-width: 720px;
       }
+
       .section-tag {
         font-family: var(--mono);
         font-size: 0.72rem;
@@ -466,12 +525,14 @@
         align-items: center;
         gap: 0.5rem;
       }
+
       .section-tag::before {
         content: "";
         width: 24px;
         height: 1px;
         background: var(--violet-2);
       }
+
       .section-title {
         font-family: var(--serif);
         font-weight: 300;
@@ -480,21 +541,26 @@
         letter-spacing: -0.03em;
         margin-bottom: 1.25rem;
       }
+
       .section-title .italic {
         font-style: italic;
         font-weight: 400;
         color: var(--violet-2);
       }
+
       .section-subtitle {
         font-size: 1.05rem;
         color: var(--text-2);
         line-height: 1.6;
       }
+
+      /* ===== PROJECTS ===== */
       .projects-list {
         display: flex;
         flex-direction: column;
         gap: 0;
       }
+
       .project {
         display: grid;
         grid-template-columns: 80px 1fr auto;
@@ -505,9 +571,11 @@
         align-items: start;
         position: relative;
       }
+
       .project:last-child {
         border-bottom: 1px solid var(--line);
       }
+
       .project::before {
         content: "";
         position: absolute;
@@ -522,6 +590,7 @@
         transition: opacity 0.4s;
         pointer-events: none;
       }
+
       .project:hover::before {
         opacity: 1;
       }
@@ -529,12 +598,14 @@
         padding-left: 1.5rem;
         padding-right: 1.5rem;
       }
+
       .project-num {
         font-family: var(--mono);
         font-size: 0.82rem;
         color: var(--text-3);
         padding-top: 0.35rem;
       }
+
       .project-body h3 {
         font-family: var(--serif);
         font-weight: 400;
@@ -544,10 +615,12 @@
         line-height: 1.1;
         transition: color 0.3s;
       }
+
       .project:hover .project-body h3 {
         font-style: italic;
         color: var(--violet-2);
       }
+
       .project-category {
         font-family: var(--mono);
         font-size: 0.72rem;
@@ -556,6 +629,7 @@
         letter-spacing: 0.1em;
         margin-bottom: 1rem;
       }
+
       .project-desc {
         color: var(--text-2);
         font-size: 0.95rem;
@@ -564,11 +638,13 @@
         margin-bottom: 1.25rem;
         font-style: italic;
       }
+
       .project-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
       }
+
       .project-tag {
         font-family: var(--mono);
         font-size: 0.7rem;
@@ -579,10 +655,12 @@
         border-radius: 999px;
         transition: all 0.3s;
       }
+
       .project:hover .project-tag {
         border-color: var(--violet);
         color: var(--violet-2);
       }
+
       .project-arrow {
         width: 48px;
         height: 48px;
@@ -595,12 +673,14 @@
         color: var(--text-2);
         flex-shrink: 0;
       }
+
       .project:hover .project-arrow {
         background: var(--text);
         color: var(--bg);
         border-color: var(--text);
         transform: rotate(-45deg);
       }
+
       @media (max-width: 700px) {
         .project {
           grid-template-columns: 1fr;
@@ -610,17 +690,21 @@
           display: none;
         }
       }
+
+      /* ===== PROJECT DETAIL CARDS ===== */
       .detail-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
         gap: 1.5rem;
         margin-top: 3rem;
       }
+
       @media (max-width: 700px) {
         .detail-grid {
           grid-template-columns: 1fr;
         }
       }
+
       .detail-card {
         background: var(--surface);
         border: 1px solid var(--line);
@@ -630,11 +714,13 @@
         overflow: hidden;
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       }
+
       .detail-card:hover {
         border-color: var(--line-strong);
         transform: translateY(-4px);
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
       }
+
       .detail-card::before {
         content: "";
         position: absolute;
@@ -646,9 +732,11 @@
         opacity: 0;
         transition: opacity 0.3s;
       }
+
       .detail-card:hover::before {
         opacity: 1;
       }
+
       .detail-header {
         display: flex;
         justify-content: space-between;
@@ -656,6 +744,7 @@
         margin-bottom: 1.5rem;
         gap: 1rem;
       }
+
       .detail-title {
         font-family: var(--serif);
         font-weight: 400;
@@ -663,6 +752,7 @@
         letter-spacing: -0.02em;
         line-height: 1.2;
       }
+
       .detail-ref {
         font-family: var(--mono);
         font-size: 0.75rem;
@@ -672,14 +762,17 @@
         border-radius: 6px;
         white-space: nowrap;
       }
+
       .detail-field {
         padding: 1rem 0;
         border-top: 1px solid var(--line);
       }
+
       .detail-field:first-of-type {
         border-top: none;
         padding-top: 0;
       }
+
       .detail-field-label {
         font-family: var(--mono);
         font-size: 0.7rem;
@@ -691,6 +784,7 @@
         align-items: center;
         gap: 0.5rem;
       }
+
       .detail-field-value {
         font-size: 0.92rem;
         color: var(--text-2);
@@ -701,18 +795,164 @@
         border: 1px dashed var(--line);
         border-radius: 10px;
       }
+
       .detail-field-value.filled {
         font-style: normal;
         color: var(--text);
         border: 1px solid var(--line);
+        border-style: solid;
         background: var(--bg-2);
       }
+
       .detail-tech {
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
         padding: 0.25rem 0;
       }
+
+      /* ===== INFO PANEL ===== */
+      .info-panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .info-panel::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(139, 92, 246, 0.12),
+          transparent 60%
+        );
+        filter: blur(60px);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .info-item {
+        padding-left: 1.5rem;
+        border-left: 1px solid var(--line);
+      }
+
+      .info-item-label {
+        font-family: var(--mono);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-3);
+        margin-bottom: 0.75rem;
+      }
+
+      .info-item-value {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: 1.35rem;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        color: var(--text);
+        margin-bottom: 0.4rem;
+      }
+
+      .info-item-sub {
+        font-size: 0.85rem;
+        color: var(--text-2);
+      }
+
+      @media (max-width: 640px) {
+        .info-panel {
+          padding: 2rem 1.5rem;
+        }
+        .info-item {
+          padding-left: 1rem;
+        }
+      }
+
+      /* ===== CHECKLIST ===== */
+      .checklist {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .check-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.85rem;
+        padding: 1rem 1.25rem;
+        background: var(--bg-2);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        transition: all 0.3s;
+      }
+
+      .check-item:hover {
+        border-color: var(--violet);
+        transform: translateX(4px);
+      }
+
+      .check-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+
+      .check-text {
+        font-size: 0.9rem;
+        color: var(--text);
+        line-height: 1.4;
+      }
+
+      .check-text strong {
+        color: var(--violet-2);
+        font-weight: 500;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        padding: 5rem 0 3rem;
+        border-top: 1px solid var(--line);
+        position: relative;
+        z-index: 2;
+      }
+
+      .footer-big {
+        font-family: var(--serif);
+        font-weight: 300;
+        font-style: italic;
+        font-size: clamp(3rem, 10vw, 8rem);
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin-bottom: 3rem;
+        background: var(--gradient-warm);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
       .footer-meta {
         display: flex;
         justify-content: space-between;
@@ -725,6 +965,8 @@
         font-size: 0.75rem;
         color: var(--text-3);
       }
+
+      /* ===== ANIMATIONS ===== */
       @keyframes reveal {
         from {
           opacity: 0;
@@ -735,6 +977,7 @@
           transform: translateY(0);
         }
       }
+
       @keyframes reveal-up {
         from {
           transform: translateY(100%);
@@ -743,6 +986,7 @@
           transform: translateY(0);
         }
       }
+
       .fade-up {
         opacity: 0;
         transform: translateY(30px);
@@ -750,10 +994,13 @@
           opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
           transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       }
+
       .fade-up.visible {
         opacity: 1;
         transform: translateY(0);
       }
+
+      /* ===== SCROLL PROGRESS ===== */
       .scroll-bar {
         position: fixed;
         top: 0;
@@ -763,11 +1010,14 @@
         z-index: 101;
         transition: width 0.1s ease-out;
       }
+
+      /* ===== SELECTION ===== */
       ::selection {
         background: var(--violet);
         color: white;
       }
-      /* VEILLE */
+
+      /* ===== VEILLE RSS DYNAMIQUE ===== */
       .veille-controls {
         display: flex;
         justify-content: space-between;
@@ -778,6 +1028,7 @@
         padding-bottom: 2rem;
         border-bottom: 1px solid var(--line);
       }
+
       .veille-status {
         display: flex;
         align-items: center;
@@ -786,6 +1037,7 @@
         font-size: 0.78rem;
         color: var(--text-2);
       }
+
       .status-dot {
         width: 8px;
         height: 8px;
@@ -794,20 +1046,24 @@
         box-shadow: 0 0 12px var(--cyan);
         animation: pulse 2s infinite;
       }
+
       .status-dot.loading {
         background: #fbbf24;
         box-shadow: 0 0 12px #fbbf24;
       }
+
       .status-dot.error {
         background: #ef4444;
         box-shadow: 0 0 12px #ef4444;
         animation: none;
       }
+
       .veille-filters {
         display: flex;
         gap: 0.5rem;
         flex-wrap: wrap;
       }
+
       .filter-btn {
         font-family: var(--mono);
         font-size: 0.72rem;
@@ -816,27 +1072,31 @@
         border: 1px solid var(--line);
         color: var(--text-2);
         border-radius: 999px;
-        cursor: pointer;
+        cursor: none;
         transition: all 0.3s;
         text-transform: uppercase;
         letter-spacing: 0.05em;
       }
+
       .filter-btn:hover {
         color: var(--text);
         border-color: var(--violet);
       }
+
       .filter-btn.active {
         background: var(--gradient);
         color: var(--bg);
         border-color: transparent;
         font-weight: 600;
       }
+
       .veille-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
         gap: 1.5rem;
         margin-bottom: 3rem;
       }
+
       .article-card {
         background: var(--surface);
         border: 1px solid var(--line);
@@ -849,11 +1109,13 @@
         color: inherit;
         position: relative;
       }
+
       .article-card:hover {
         border-color: var(--violet);
         transform: translateY(-6px);
         box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15);
       }
+
       .article-card::before {
         content: "";
         position: absolute;
@@ -865,16 +1127,21 @@
         opacity: 0;
         transition: opacity 0.3s;
       }
+
       .article-card:hover::before {
         opacity: 1;
       }
+
       .article-thumb {
         width: 100%;
         height: 180px;
         background: var(--bg-2);
         background-size: cover;
         background-position: center;
+        position: relative;
+        overflow: hidden;
       }
+
       .article-thumb-placeholder {
         width: 100%;
         height: 100%;
@@ -887,12 +1154,14 @@
           rgba(34, 211, 238, 0.1)
         );
       }
+
       .article-thumb-placeholder svg {
         width: 48px;
         height: 48px;
         color: var(--violet-2);
         opacity: 0.5;
       }
+
       .article-content {
         padding: 1.5rem;
         display: flex;
@@ -900,6 +1169,7 @@
         gap: 0.8rem;
         flex: 1;
       }
+
       .article-source {
         display: inline-flex;
         align-items: center;
@@ -910,6 +1180,7 @@
         letter-spacing: 0.1em;
         color: var(--violet-2);
       }
+
       .article-source::before {
         content: "";
         width: 5px;
@@ -917,6 +1188,7 @@
         border-radius: 50%;
         background: var(--violet-2);
       }
+
       .article-title {
         font-family: var(--serif);
         font-weight: 400;
@@ -925,6 +1197,7 @@
         letter-spacing: -0.01em;
         color: var(--text);
       }
+
       .article-desc {
         font-size: 0.85rem;
         color: var(--text-2);
@@ -934,6 +1207,7 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
+
       .article-meta {
         display: flex;
         justify-content: space-between;
@@ -945,6 +1219,7 @@
         font-size: 0.72rem;
         color: var(--text-3);
       }
+
       .article-tag-ia {
         background: rgba(139, 92, 246, 0.15);
         border: 1px solid rgba(139, 92, 246, 0.3);
@@ -953,6 +1228,7 @@
         border-radius: 999px;
         font-size: 0.65rem;
       }
+
       .veille-empty {
         text-align: center;
         padding: 3rem 1.5rem;
@@ -960,12 +1236,14 @@
         border: 1px dashed var(--line);
         border-radius: 16px;
       }
+
       .veille-keywords {
         background: var(--surface);
         border: 1px solid var(--line);
         border-radius: 20px;
         padding: 1.5rem 2rem;
       }
+
       .article-skeleton {
         background: var(--surface);
         border: 1px solid var(--line);
@@ -974,6 +1252,7 @@
         position: relative;
         overflow: hidden;
       }
+
       .article-skeleton::before {
         content: "";
         position: absolute;
@@ -986,6 +1265,7 @@
         );
         animation: shimmer 1.5s infinite;
       }
+
       @keyframes shimmer {
         from {
           transform: translateX(-100%);
@@ -994,6 +1274,7 @@
           transform: translateX(100%);
         }
       }
+
       ::-webkit-scrollbar {
         width: 10px;
       }
@@ -1007,20 +1288,20 @@
       ::-webkit-scrollbar-thumb:hover {
         background: var(--violet);
       }
-      footer {
-        padding: 5rem 0 3rem;
-        border-top: 1px solid var(--line);
-        position: relative;
-        z-index: 2;
-      }
     </style>
   </head>
   <body>
+    <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
+
+    <!-- Scroll Progress -->
     <div class="scroll-bar" id="scrollBar"></div>
+
+    <!-- Aurora BG -->
     <div class="aurora"></div>
 
+    <!-- Nav -->
     <nav class="nav">
       <a href="#home">Accueil</a>
       <a href="#about">À propos</a>
@@ -1030,12 +1311,14 @@
       <a href="#veille">Veille</a>
     </nav>
 
+    <!-- Hero -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-meta">
           <span class="dot"></span>
           <span>PORTFOLIO PROFESSIONNEL · DÉVELOPPEUR FULL-STACK</span>
         </div>
+
         <div class="hero-grid">
           <div>
             <h1 class="hero-title">
@@ -1067,11 +1350,12 @@
               >
             </div>
           </div>
+
           <div class="hero-card">
             <div class="card-label">// À propos</div>
             <div class="stat-grid">
               <div class="stat">
-                <div class="stat-value">5</div>
+                <div class="stat-value">4</div>
                 <div class="stat-label">Réalisations pro</div>
               </div>
               <div class="stat">
@@ -1101,6 +1385,7 @@
       </div>
     </section>
 
+    <!-- Marquee -->
     <div class="marquee">
       <div class="marquee-inner">
         <div class="marquee-item">API Backend Node.js</div>
@@ -1116,19 +1401,20 @@
       </div>
     </div>
 
+    <!-- About -->
     <section id="about">
       <div class="container">
         <div class="section-header fade-up">
           <div class="section-tag">À propos — Parcours</div>
           <h2 class="section-title">
-            Étudiant développeur sérieux,<br /><span class="italic"
-              >en quête de sens.</span
-            >
+            Étudiant développeur sérieux,<br />
+            <span class="italic">en quête de sens.</span>
           </h2>
           <p class="section-subtitle">
             Ma formation, mon parcours et ce qui m'anime dans ce métier.
           </p>
         </div>
+
         <div class="detail-grid fade-up">
           <div class="detail-card">
             <div class="detail-header">
@@ -1159,36 +1445,35 @@
               </div>
             </div>
           </div>
+
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">Expérience professionnelle</h3>
-              <span class="detail-ref">ALTERNANCE</span>
+              <span class="detail-ref">STAGE</span>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">
                 ◆ Carrefour — Service décoration
               </div>
               <div class="detail-field-value filled">
-                Alternance effectuée chez Carrefour. Missions partagées entre la
-                création de supports visuels pour le service décoration et la
-                maintenance du traceur grand format Canon utilisé en magasin.
+                Stage en entreprise effectué dans un magasin Carrefour, au sein
+                du service décoration. Mission de création de supports visuels
+                pour les opérations promotionnelles.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Missions confiées</div>
               <div class="detail-field-value filled">
-                Conception graphique de plus de 10 affiches promotionnelles sur
-                Canva, maintenance du traceur Canon via le logiciel RIP Queue,
-                gestion des consommables (papier blanc/jaune), dépannage de
-                premier niveau.
+                Conception graphique de plus de 10 affiches promotionnelles,
+                respect strict de la charte graphique de l'enseigne, travail en
+                autonomie avec restitution régulière au tuteur.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Compétences développées</div>
               <div class="detail-field-value filled">
-                Maintenance d'un équipement informatique, autonomie, rigueur
-                visuelle, communication avec une équipe métier, respect des
-                délais.
+                Autonomie, rigueur visuelle, gestion des contraintes,
+                communication avec une équipe métier, respect des délais.
               </div>
             </div>
           </div>
@@ -1196,77 +1481,109 @@
       </div>
     </section>
 
+    <!-- Skills -->
     <section id="skills">
       <div class="container">
         <div class="section-header fade-up">
           <div class="section-tag">Compétences</div>
           <h2 class="section-title">
-            Stack technique<br /><span class="italic">& outils maîtrisés.</span>
+            Stack technique<br />
+            <span class="italic">& compétences SIO.</span>
           </h2>
           <p class="section-subtitle">
-            Les technologies, langages et outils que j'utilise au quotidien sur
-            mes projets.
+            Les technologies que je maîtrise et les compétences du référentiel
+            BTS SIO que j'ai mobilisées sur mes projets.
           </p>
         </div>
+
         <div class="detail-grid fade-up">
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">Frontend</h3>
             </div>
             <div class="detail-tech" style="padding-top: 0.5rem">
-              <span class="tech-pill">React</span
-              ><span class="tech-pill">React Native</span
-              ><span class="tech-pill">JavaScript (ES6+)</span
-              ><span class="tech-pill">HTML5</span
-              ><span class="tech-pill">CSS3</span
-              ><span class="tech-pill">Expo</span
-              ><span class="tech-pill">Responsive Design</span>
+              <span class="tech-pill">React</span>
+              <span class="tech-pill">React Native</span>
+              <span class="tech-pill">JavaScript (ES6+)</span>
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3</span>
+              <span class="tech-pill">Expo</span>
+              <span class="tech-pill">Responsive Design</span>
             </div>
           </div>
+
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">Backend & Données</h3>
             </div>
             <div class="detail-tech" style="padding-top: 0.5rem">
-              <span class="tech-pill">Node.js</span
-              ><span class="tech-pill">Express</span
-              ><span class="tech-pill">REST API</span
-              ><span class="tech-pill">MySQL</span
-              ><span class="tech-pill">SQL</span
-              ><span class="tech-pill">MCD / MLD</span
-              ><span class="tech-pill">Authentification JWT</span>
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">Express</span>
+              <span class="tech-pill">REST API</span>
+              <span class="tech-pill">MySQL</span>
+              <span class="tech-pill">SQL</span>
+              <span class="tech-pill">MCD / MLD</span>
+              <span class="tech-pill">Authentification</span>
             </div>
           </div>
+
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">Outils & Design</h3>
             </div>
             <div class="detail-tech" style="padding-top: 0.5rem">
-              <span class="tech-pill">Git</span
-              ><span class="tech-pill">VS Code</span
-              ><span class="tech-pill">Canva</span
-              ><span class="tech-pill">Postman</span
-              ><span class="tech-pill">MySQL Workbench</span
-              ><span class="tech-pill">RIP Queue</span
-              ><span class="tech-pill">Traceur Canon</span>
+              <span class="tech-pill">Git</span>
+              <span class="tech-pill">VS Code</span>
+              <span class="tech-pill">Canva</span>
+              <span class="tech-pill">Postman</span>
+              <span class="tech-pill">MySQL Workbench</span>
+              <span class="tech-pill">Charte graphique</span>
+            </div>
+          </div>
+
+          <div class="detail-card">
+            <div class="detail-header">
+              <h3 class="detail-title">Référentiel BTS SIO</h3>
+              <span class="detail-ref">BLOC 2</span>
+            </div>
+            <div class="detail-field">
+              <div class="detail-field-label">◆ B2.2</div>
+              <div class="detail-field-value filled">
+                Concevoir et développer une solution applicative
+              </div>
+            </div>
+            <div class="detail-field">
+              <div class="detail-field-label">◆ B2.3</div>
+              <div class="detail-field-value filled">
+                Concevoir et réaliser une base de données
+              </div>
+            </div>
+            <div class="detail-field">
+              <div class="detail-field-label">◆ B2.4</div>
+              <div class="detail-field-value filled">
+                Mettre à disposition une solution applicative
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Work -->
     <section id="work">
       <div class="container">
         <div class="section-header fade-up">
           <div class="section-tag">Mes projets — En résumé</div>
           <h2 class="section-title">
-            Cinq réalisations<br /><span class="italic">professionnelles.</span>
+            Quatre réalisations<br />
+            <span class="italic">professionnelles.</span>
           </h2>
           <p class="section-subtitle">
             Vue d'ensemble de mes projets professionnels — résumé synthétique
             des réalisations à présenter en entretien.
           </p>
         </div>
+
         <div class="projects-list fade-up">
           <div class="project">
             <div class="project-num">R / 01</div>
@@ -1282,11 +1599,11 @@
                 d'une base relationnelle MySQL.
               </p>
               <div class="project-tags">
-                <span class="project-tag">Node.js</span
-                ><span class="project-tag">Express</span
-                ><span class="project-tag">MySQL</span
-                ><span class="project-tag">MCD / MLD</span
-                ><span class="project-tag">API REST</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">Express</span>
+                <span class="project-tag">MySQL</span>
+                <span class="project-tag">MCD / MLD</span>
+                <span class="project-tag">API REST</span>
               </div>
             </div>
             <div class="project-arrow">
@@ -1302,6 +1619,7 @@
               </svg>
             </div>
           </div>
+
           <div class="project">
             <div class="project-num">R / 02</div>
             <div class="project-body">
@@ -1316,11 +1634,11 @@
                 inscription).
               </p>
               <div class="project-tags">
-                <span class="project-tag">React</span
-                ><span class="project-tag">JavaScript</span
-                ><span class="project-tag">HTML5</span
-                ><span class="project-tag">CSS3</span
-                ><span class="project-tag">Fetch API</span>
+                <span class="project-tag">React</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">HTML5</span>
+                <span class="project-tag">CSS3</span>
+                <span class="project-tag">Fetch API</span>
               </div>
             </div>
             <div class="project-arrow">
@@ -1336,6 +1654,7 @@
               </svg>
             </div>
           </div>
+
           <div class="project">
             <div class="project-num">R / 03</div>
             <div class="project-body">
@@ -1344,13 +1663,14 @@
               <p class="project-desc">
                 Application mobile cross-platform développée avec React Native
                 et Expo Go. Authentification, consultation des événements et
-                inscription/désinscription, connectée à la même API backend.
+                inscription/désinscription, le tout connecté à la même API
+                backend.
               </p>
               <div class="project-tags">
-                <span class="project-tag">React Native</span
-                ><span class="project-tag">Expo</span
-                ><span class="project-tag">JavaScript</span
-                ><span class="project-tag">REST API</span>
+                <span class="project-tag">React Native</span>
+                <span class="project-tag">Expo</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">REST API</span>
               </div>
             </div>
             <div class="project-arrow">
@@ -1366,6 +1686,7 @@
               </svg>
             </div>
           </div>
+
           <div class="project">
             <div class="project-num">R / 04</div>
             <div class="project-body">
@@ -1376,47 +1697,14 @@
               <p class="project-desc">
                 Création de plus de 10 affiches promotionnelles pour le service
                 décoration de Carrefour, en respectant rigoureusement la charte
-                graphique de l'enseigne. Mission menée dans le cadre de mon
-                alternance.
+                graphique de l'enseigne. Mission menée dans le cadre d'un stage
+                en entreprise.
               </p>
               <div class="project-tags">
-                <span class="project-tag">Canva</span
-                ><span class="project-tag">Design</span
-                ><span class="project-tag">Charte graphique</span
-                ><span class="project-tag">Impression</span>
-              </div>
-            </div>
-            <div class="project-arrow">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M7 17L17 7M17 7H7M17 7V17" />
-              </svg>
-            </div>
-          </div>
-          <div class="project">
-            <div class="project-num">R / 05</div>
-            <div class="project-body">
-              <h3>Maintenance Traceur Canon — Carrefour</h3>
-              <div class="project-category">
-                MAINTENANCE INFORMATIQUE · MATÉRIEL D'IMPRESSION
-              </div>
-              <p class="project-desc">
-                Maintenance opérationnelle d'un traceur grand format Canon en
-                magasin. Gestion du logiciel RIP Queue, suivi des consommables
-                papier blanc et jaune, dépannage courant pour garantir la
-                continuité du service.
-              </p>
-              <div class="project-tags">
-                <span class="project-tag">Traceur Canon</span
-                ><span class="project-tag">RIP Queue</span
-                ><span class="project-tag">Maintenance</span
-                ><span class="project-tag">Consommables</span>
+                <span class="project-tag">Canva</span>
+                <span class="project-tag">Design</span>
+                <span class="project-tag">Charte graphique</span>
+                <span class="project-tag">Impression</span>
               </div>
             </div>
             <div class="project-arrow">
@@ -1436,19 +1724,24 @@
       </div>
     </section>
 
+    <!-- Detail Fiches -->
     <section id="detail">
       <div class="container">
         <div class="section-header fade-up">
           <div class="section-tag">Fiches détaillées</div>
           <h2 class="section-title">
-            Chaque projet,<br /><span class="italic">disséqué.</span>
+            Chaque projet,<br />
+            <span class="italic">disséqué.</span>
           </h2>
           <p class="section-subtitle">
             Pour chaque projet : contexte, objectif, réalisation, résultat et
-            compétences mobilisées.
+            compétences mobilisées. Une présentation structurée des missions et
+            expériences menées.
           </p>
         </div>
+
         <div class="detail-grid fade-up">
+          <!-- Fiche 1 -->
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">EventHub — API Backend</h3>
@@ -1459,8 +1752,8 @@
               <div class="detail-field-value filled">
                 Projet mené en autonomie à ITIS Formation. Conception complète
                 d'un écosystème de gestion d'événements composé de trois briques
-                : backend (API), front web et application mobile. Cette brique
-                constitue le cœur du système.
+                : un backend (API), un front web et une application mobile.
+                Cette première brique constitue le cœur du système.
               </div>
             </div>
             <div class="detail-field">
@@ -1469,48 +1762,51 @@
                 Concevoir et développer une API REST sécurisée capable de gérer
                 deux types d'utilisateurs (organisateurs et participants), avec
                 un système complet de création d'événements, d'inscription et de
-                filtrage, ainsi que la base de données relationnelle
-                sous-jacente.
+                filtrage. Modéliser et implémenter la base de données
+                relationnelle sous-jacente.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Réalisation</div>
               <div class="detail-field-value filled">
-                Modélisation de la base (MCD puis MLD) en MySQL avec les entités
-                Utilisateur, Événement, Inscription et Rôle. Développement de
-                l'API REST en Node.js / Express : routes d'authentification,
-                middleware de gestion des rôles, endpoints CRUD, système de
-                recherche et filtres.
+                J'ai modélisé la base (MCD puis MLD) en MySQL avec les entités
+                Utilisateur, Événement, Inscription et Rôle. J'ai ensuite
+                développé l'API REST en Node.js / Express : routes
+                d'authentification, middleware de gestion des rôles, endpoints
+                CRUD pour les événements, gestion des inscriptions et système de
+                recherche/filtres.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Résultat</div>
               <div class="detail-field-value filled">
-                API fonctionnelle et testée, capable d'alimenter simultanément
-                les clients web et mobile. Architecture scalable avec séparation
-                claire des responsabilités et schéma de base de données
-                normalisé.
+                API fonctionnelle, testée, capable d'alimenter simultanément les
+                clients web et mobile. Architecture pensée pour être scalable,
+                avec une séparation claire des responsabilités et un schéma de
+                base de données normalisé.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Stack technique</div>
               <div class="detail-tech">
-                <span class="tech-pill">Node.js</span
-                ><span class="tech-pill">Express</span
-                ><span class="tech-pill">MySQL</span
-                ><span class="tech-pill">JWT</span
-                ><span class="tech-pill">REST</span>
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">Express</span>
+                <span class="tech-pill">MySQL</span>
+                <span class="tech-pill">JWT</span>
+                <span class="tech-pill">REST</span>
               </div>
             </div>
             <div class="detail-field">
-              <div class="detail-field-label">◆ Compétences mobilisées</div>
+              <div class="detail-field-label">◆ Compétences SIO</div>
               <div class="detail-field-value filled">
-                Conception d'API REST · Modélisation de base de données
-                relationnelle · Authentification et gestion des rôles ·
-                Architecture logicielle
+                B2.2 Concevoir et développer une solution applicative · B2.3
+                Concevoir et réaliser une base de données · B2.4 Mettre à
+                disposition une solution applicative
               </div>
             </div>
           </div>
+
+          <!-- Fiche 2 -->
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">EventHub — Interface Web</h3>
@@ -1521,8 +1817,8 @@
               <div class="detail-field-value filled">
                 Deuxième brique de l'écosystème EventHub. Une fois l'API backend
                 opérationnelle, il était nécessaire de développer une interface
-                web pour permettre aux utilisateurs d'interagir depuis un
-                navigateur.
+                web pour permettre aux utilisateurs d'interagir avec le système
+                depuis un navigateur.
               </div>
             </div>
             <div class="detail-field">
@@ -1531,7 +1827,7 @@
                 Concevoir une interface web responsive et ergonomique offrant
                 deux espaces différenciés : un dashboard organisateur pour créer
                 et gérer ses événements, et un espace participant pour
-                rechercher, filtrer et s'inscrire.
+                rechercher, filtrer et s'inscrire aux événements.
               </div>
             </div>
             <div class="detail-field">
@@ -1539,9 +1835,10 @@
               <div class="detail-field-value filled">
                 Développement en React avec une architecture par composants.
                 Mise en place du routage, de la gestion d'état, des appels à
-                l'API via Fetch, et d'une interface responsive en CSS. Écrans
-                d'authentification, création/édition d'événements, listing avec
-                filtres, formulaire d'inscription.
+                l'API via Fetch, et d'une interface responsive en CSS. J'ai
+                implémenté les écrans d'authentification, de création/édition
+                d'événements, de listing avec filtres, et le formulaire
+                d'inscription.
               </div>
             </div>
             <div class="detail-field">
@@ -1549,27 +1846,30 @@
               <div class="detail-field-value filled">
                 Interface web fonctionnelle, responsive (compatible mobile et
                 desktop), entièrement connectée à l'API backend. L'expérience
-                utilisateur est différenciée selon le rôle connecté.
+                utilisateur est différenciée selon le rôle de l'utilisateur
+                connecté.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Stack technique</div>
               <div class="detail-tech">
-                <span class="tech-pill">React</span
-                ><span class="tech-pill">JavaScript</span
-                ><span class="tech-pill">HTML5</span
-                ><span class="tech-pill">CSS3</span
-                ><span class="tech-pill">Fetch API</span>
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">Fetch API</span>
               </div>
             </div>
             <div class="detail-field">
-              <div class="detail-field-label">◆ Compétences mobilisées</div>
+              <div class="detail-field-label">◆ Compétences SIO</div>
               <div class="detail-field-value filled">
-                Développement frontend React · Intégration responsive ·
-                Consommation d'API REST · Expérience utilisateur
+                B2.2 Concevoir et développer une solution applicative · B2.4
+                Mettre à disposition une solution applicative
               </div>
             </div>
           </div>
+
+          <!-- Fiche 3 -->
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">EventHub — Application Mobile</h3>
@@ -1578,54 +1878,59 @@
             <div class="detail-field">
               <div class="detail-field-label">◆ Contexte</div>
               <div class="detail-field-value filled">
-                Troisième brique de l'écosystème EventHub. Étendre la plateforme
-                aux usages mobiles, en proposant une application disponible sur
-                Android et iOS sans dupliquer le code.
+                Troisième brique de l'écosystème EventHub. Étendre l'utilisation
+                de la plateforme aux usages mobiles, en proposant une
+                application disponible sur Android et iOS sans dupliquer le
+                code.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Objectif</div>
               <div class="detail-field-value filled">
                 Développer une application mobile cross-platform offrant les
-                fonctionnalités essentielles : authentification, consultation de
-                la liste des événements, et inscription/désinscription en
-                mobilité.
+                fonctionnalités essentielles aux deux types d'utilisateurs :
+                authentification, consultation de la liste des événements, et
+                inscription/désinscription en mobilité.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Réalisation</div>
               <div class="detail-field-value filled">
                 Choix de React Native avec Expo Go pour mutualiser le code entre
-                Android et iOS. Implémentation des écrans d'authentification, du
-                listing des événements et du flux d'inscription. Connexion à
-                l'API REST EventHub.
+                Android et iOS et accélérer les itérations. Implémentation des
+                écrans d'authentification, du listing des événements, et du flux
+                d'inscription. Connexion à l'API REST EventHub pour partager les
+                données avec le client web.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Résultat</div>
               <div class="detail-field-value filled">
-                Application mobile fonctionnelle testée sur Expo Go, communicant
-                avec le même backend que le frontend web. L'écosystème EventHub
-                est accessible web ET mobile avec une base de données unifiée.
+                Application mobile fonctionnelle, testée sur Expo Go, capable de
+                communiquer avec le même backend que le frontend web.
+                L'écosystème EventHub est désormais accessible depuis le web ET
+                le mobile, avec une base de données unifiée.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Stack technique</div>
               <div class="detail-tech">
-                <span class="tech-pill">React Native</span
-                ><span class="tech-pill">Expo</span
-                ><span class="tech-pill">JavaScript</span
-                ><span class="tech-pill">REST API</span>
+                <span class="tech-pill">React Native</span>
+                <span class="tech-pill">Expo</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">REST API</span>
               </div>
             </div>
             <div class="detail-field">
-              <div class="detail-field-label">◆ Compétences mobilisées</div>
+              <div class="detail-field-label">◆ Compétences SIO</div>
               <div class="detail-field-value filled">
-                Développement mobile cross-platform · React Native & Expo ·
-                Intégration d'API REST · Adaptation Android / iOS
+                B2.2 Concevoir et développer une solution applicative · B2.4
+                Mettre à disposition une solution applicative
               </div>
             </div>
           </div>
+
+          <!-- Fiche 4 -->
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">Affiches Promotions — Carrefour</h3>
@@ -1634,7 +1939,7 @@
             <div class="detail-field">
               <div class="detail-field-label">◆ Contexte</div>
               <div class="detail-field-value filled">
-                Alternance effectuée chez Carrefour, au sein du service
+                Stage en entreprise effectué chez Carrefour, au sein du service
                 décoration. Le magasin avait besoin de supports visuels
                 percutants pour mettre en avant les opérations promotionnelles
                 auprès des clients.
@@ -1653,7 +1958,7 @@
               <div class="detail-field-value filled">
                 Plus de 10 affiches conçues sur Canva, en respectant la charte
                 visuelle de l'enseigne (couleurs, typographies, codes
-                graphiques). Travail en autonomie avec validation du tuteur
+                graphiques). Travail en autonomie avec validation de mon tuteur
                 avant impression.
               </div>
             </div>
@@ -1663,15 +1968,16 @@
                 Affiches imprimées et installées en rayon, validées par le
                 service décoration. Mission qui m'a permis de développer mon
                 sens du détail visuel et ma capacité à respecter des contraintes
-                graphiques strictes.
+                graphiques strictes — compétences transposables au design
+                d'interfaces.
               </div>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">◆ Outils utilisés</div>
               <div class="detail-tech">
-                <span class="tech-pill">Canva</span
-                ><span class="tech-pill">Charte graphique</span
-                ><span class="tech-pill">Mise en page</span>
+                <span class="tech-pill">Canva</span>
+                <span class="tech-pill">Charte graphique</span>
+                <span class="tech-pill">Mise en page</span>
               </div>
             </div>
             <div class="detail-field">
@@ -1683,90 +1989,27 @@
               </div>
             </div>
           </div>
-          <div class="detail-card">
-            <div class="detail-header">
-              <h3 class="detail-title">Maintenance Traceur Canon</h3>
-              <span class="detail-ref">R / 05</span>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">◆ Contexte</div>
-              <div class="detail-field-value filled">
-                Pendant mon alternance chez Carrefour, le magasin disposait d'un
-                traceur grand format Canon utilisé pour imprimer les affiches
-                promotionnelles. Cet équipement devait rester opérationnel en
-                permanence pour ne pas bloquer la chaîne de communication
-                visuelle du magasin.
-              </div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">◆ Objectif</div>
-              <div class="detail-field-value filled">
-                Assurer le bon fonctionnement du traceur Canon au quotidien :
-                suivre les impressions via le logiciel RIP Queue, gérer les
-                consommables, et intervenir en cas de problème courant pour
-                garantir la continuité de service.
-              </div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">◆ Réalisation</div>
-              <div class="detail-field-value filled">
-                Prise en main du logiciel RIP Queue (gestion de la file
-                d'impression). Suivi des stocks de papier blanc et papier jaune,
-                remplacement des rouleaux. Vérifications régulières, dépannage
-                de premier niveau (bourrages, erreurs d'impression) et alerte au
-                service technique en cas de panne complexe.
-              </div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">◆ Résultat</div>
-              <div class="detail-field-value filled">
-                Traceur opérationnel en continu pendant toute la durée de
-                l'alternance, sans interruption majeure. Le service décoration a
-                pu produire ses affiches sans rupture, et j'ai acquis des
-                réflexes de maintenance informatique transposables à d'autres
-                équipements.
-              </div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">◆ Stack technique</div>
-              <div class="detail-tech">
-                <span class="tech-pill">Traceur Canon</span
-                ><span class="tech-pill">RIP Queue</span
-                ><span class="tech-pill">Consommables</span
-                ><span class="tech-pill">Diagnostic</span>
-              </div>
-            </div>
-            <div class="detail-field">
-              <div class="detail-field-label">◆ Compétences mobilisées</div>
-              <div class="detail-field-value filled">
-                Maintenance d'un équipement informatique · Utilisation d'un
-                logiciel métier · Gestion des consommables · Diagnostic et
-                dépannage de premier niveau · Sens des responsabilités
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
+    <!-- Veille -->
     <section id="veille">
       <div class="container">
         <div class="section-header fade-up">
           <div class="section-tag">Veille technologique</div>
           <h2 class="section-title">
-            IA ou montage vidéo,<br /><span class="italic"
-              >en direct du web.</span
-            >
+            IA ou montage vidéo,<br />
+            <span class="italic">en direct du web.</span>
           </h2>
           <p class="section-subtitle">
-            Flux RSS dynamique agrégeant
-            <strong style="color: var(--text)">Motion Array</strong> et
-            <strong style="color: var(--text)">Aiography</strong>, filtré
+            Flux RSS dynamique agrégeant Motion Array et The Guardian, filtré
             automatiquement sur les sujets liés à l'intelligence artificielle ou
             au montage vidéo. Les articles se mettent à jour à chaque chargement
             de la page.
           </p>
         </div>
+
         <div class="veille-controls fade-up">
           <div class="veille-status" id="veilleStatus">
             <span class="status-dot"></span>
@@ -1779,12 +2022,16 @@
             <button class="filter-btn" data-source="motionarray">
               Motion Array
             </button>
-            <button class="filter-btn" data-source="aiography">
-              Aiography
+            <button class="filter-btn" data-source="guardian">
+              The Guardian
             </button>
           </div>
         </div>
-        <div class="veille-grid fade-up" id="veilleGrid"></div>
+
+        <div class="veille-grid fade-up" id="veilleGrid">
+          <!-- articles injectés dynamiquement -->
+        </div>
+
         <div class="veille-empty" id="veilleEmpty" style="display: none">
           <p>
             Aucun article correspondant aux mots-clés "IA" ou "montage" trouvé
@@ -1796,11 +2043,13 @@
             post-production...
           </p>
         </div>
+
         <div class="veille-keywords fade-up">
-          <div class="card-label">// Mots-clés du filtre</div>
+          <div class="card-label">// Mots-clés du filtre IA</div>
           <div class="detail-tech">
             <span class="tech-pill">artificial intelligence</span>
             <span class="tech-pill">AI</span>
+            <span class="tech-pill">IA</span>
             <span class="tech-pill">machine learning</span>
             <span class="tech-pill">generative</span>
             <span class="tech-pill">deepfake</span>
@@ -1808,14 +2057,12 @@
             <span class="tech-pill">montage</span>
             <span class="tech-pill">post-production</span>
             <span class="tech-pill">automation</span>
-            <span class="tech-pill">midjourney</span>
-            <span class="tech-pill">runway</span>
-            <span class="tech-pill">sora</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="footer-meta">
@@ -1827,26 +2074,30 @@
     </footer>
 
     <script>
+      // Custom Cursor
       const dot = document.querySelector(".cursor-dot");
       const ring = document.querySelector(".cursor-ring");
       let mouseX = 0,
         mouseY = 0,
         ringX = 0,
         ringY = 0;
+
       document.addEventListener("mousemove", (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-        dot.style.transform = `translate(${mouseX - 3}px,${mouseY - 3}px)`;
+        dot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
       });
+
       function animateRing() {
         ringX += (mouseX - ringX) * 0.2;
         ringY += (mouseY - ringY) * 0.2;
-        ring.style.transform = `translate(${ringX - 16}px,${ringY - 16}px)`;
+        ring.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`;
         requestAnimationFrame(animateRing);
       }
       animateRing();
+
       document
-        .querySelectorAll("a,button,.project,.detail-card")
+        .querySelectorAll("a, button, .project, .detail-card, .check-item")
         .forEach((el) => {
           el.addEventListener("mouseenter", () =>
             document.body.classList.add("hovering")
@@ -1855,37 +2106,48 @@
             document.body.classList.remove("hovering")
           );
         });
+
+      // Scroll Progress
       const scrollBar = document.getElementById("scrollBar");
       window.addEventListener("scroll", () => {
         const h = document.documentElement.scrollHeight - window.innerHeight;
-        scrollBar.style.width = (window.scrollY / h) * 100 + "%";
+        const p = (window.scrollY / h) * 100;
+        scrollBar.style.width = p + "%";
       });
+
+      // Fade-up Observer
       const obs = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add("visible");
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
           });
         },
         { threshold: 0.1, rootMargin: "0px 0px -80px 0px" }
       );
+
       document.querySelectorAll(".fade-up").forEach((el) => obs.observe(el));
 
       // ============================================
-      // VEILLE — Flux RSS dynamique (Aiography + Motion Array)
+      // VEILLE TECHNOLOGIQUE — Flux RSS dynamique
       // ============================================
       const RSS_SOURCES = [
         {
           id: "motionarray",
           name: "Motion Array",
+          url: "https://blog.motionarray.com/feed/",
           api: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fblog.motionarray.com%2Ffeed%2F",
         },
         {
           id: "aiography",
-          name: "Aiography",
-          api: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Faiography.beehiiv.com%2Frss",
+          name: "aiography",
+          url: "https://aiography.beehiiv.com",
+          api: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Faiography.beehiiv.com",
         },
       ];
 
+      // Mots-clés pour filtrer les articles sur l'IA dans le montage / vidéo
       const KEYWORDS_IA = [
         "artificial intelligence",
         "ai",
@@ -1899,6 +2161,7 @@
         "deep learning",
         "generative",
         "génératif",
+        "generatif",
         "gen ai",
         "genai",
         "chatgpt",
@@ -1911,15 +2174,17 @@
         "dall-e",
         "dalle",
         "gemini",
+        "claude",
         "neural",
+        "neural network",
+        "algorithm",
+        "algorithme",
         "deepfake",
         "deep fake",
         "synthetic",
         "synthétique",
-        "llm",
-        "openai",
-        "anthropic",
       ];
+
       const KEYWORDS_MONTAGE = [
         "video",
         "vidéo",
@@ -1929,6 +2194,7 @@
         "editor",
         "post-production",
         "postproduction",
+        "post production",
         "film",
         "movie",
         "cinema",
@@ -1941,6 +2207,7 @@
         "motion graphics",
         "vfx",
         "visual effects",
+        "effets visuels",
         "animation",
         "rendering",
         "compositing",
@@ -1950,133 +2217,177 @@
         "media",
       ];
 
-      let allArticles = [],
-        currentFilter = "all";
+      let allArticles = [];
+      let currentFilter = "all";
 
+      // Fonction pour vérifier si un texte contient un mot-clé IA
       function containsIA(text) {
         if (!text) return false;
-        const l = text.toLowerCase();
-        return KEYWORDS_IA.some((kw) => l.includes(kw));
+        const lower = text.toLowerCase();
+        return KEYWORDS_IA.some((kw) => lower.includes(kw));
       }
+
+      // Fonction pour vérifier si un texte contient un mot-clé montage/vidéo
       function containsMontage(text) {
         if (!text) return false;
-        const l = text.toLowerCase();
-        return KEYWORDS_MONTAGE.some((kw) => l.includes(kw));
+        const lower = text.toLowerCase();
+        return KEYWORDS_MONTAGE.some((kw) => lower.includes(kw));
       }
-      function isRelevant(article) {
-        const h =
+
+      // Vérifie si l'article est pertinent (mot-clé IA OU mot-clé montage)
+      function isRelevant(article, sourceId) {
+        const haystack =
           (article.title || "") +
           " " +
           (article.description || "") +
           " " +
           (article.content || "");
-        return containsIA(h) || containsMontage(h);
+        const hasIA = containsIA(haystack);
+        const hasMontage = containsMontage(haystack);
+
+        // Logique OU : l'article passe le filtre si IA OU montage est mentionné
+        return hasIA || hasMontage;
       }
+
+      // Nettoie le HTML pour extraire du texte
       function stripHTML(html) {
-        const t = document.createElement("div");
-        t.innerHTML = html || "";
-        return t.textContent || t.innerText || "";
+        const tmp = document.createElement("div");
+        tmp.innerHTML = html || "";
+        return tmp.textContent || tmp.innerText || "";
       }
-      function formatDate(d) {
+
+      // Format date
+      function formatDate(dateStr) {
         try {
-          return new Date(d).toLocaleDateString("fr-FR", {
+          const d = new Date(dateStr);
+          return d.toLocaleDateString("fr-FR", {
             day: "2-digit",
             month: "short",
             year: "numeric",
           });
         } catch (e) {
-          return d;
+          return dateStr;
         }
       }
 
-      function renderArticle(a) {
-        const thumb = a.thumbnail || a.enclosure?.link || "";
-        const desc = stripHTML(a.description).substring(0, 200);
-        const h =
-          (a.title || "") +
+      // Génère le HTML d'une carte article
+      function renderArticle(article) {
+        const thumb = article.thumbnail || article.enclosure?.link || "";
+        const desc = stripHTML(article.description).substring(0, 200);
+
+        // Détermine le tag selon ce qui a matché
+        const haystack =
+          (article.title || "") +
           " " +
-          (a.description || "") +
+          (article.description || "") +
           " " +
-          (a.content || "");
-        const hasIA = containsIA(h),
-          hasMontage = containsMontage(h);
-        let tag =
-          hasIA && hasMontage
-            ? "IA · Montage"
-            : hasIA
-              ? "IA"
-              : hasMontage
-                ? "Montage"
-                : "Tech";
+          (article.content || "");
+        const hasIA = containsIA(haystack);
+        const hasMontage = containsMontage(haystack);
+        let tagLabel = "Tech";
+        if (hasIA && hasMontage) tagLabel = "IA · Montage";
+        else if (hasIA) tagLabel = "IA";
+        else if (hasMontage) tagLabel = "Montage";
+
         const thumbHtml = thumb
-          ? `<div class="article-thumb" style="background-image:url('${thumb}')"></div>`
+          ? `<div class="article-thumb" style="background-image: url('${thumb}')"></div>`
           : `<div class="article-thumb"><div class="article-thumb-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><polygon points="10,9 16,12 10,15" fill="currentColor"/></svg></div></div>`;
-        return `<a href="${a.link}" target="_blank" rel="noopener noreferrer" class="article-card" data-source="${a.sourceId}">${thumbHtml}<div class="article-content"><div class="article-source">${a.sourceName}</div><h3 class="article-title">${a.title}</h3><p class="article-desc">${desc}${desc.length >= 200 ? "..." : ""}</p><div class="article-meta"><span>${formatDate(a.pubDate)}</span><span class="article-tag-ia">${tag}</span></div></div></a>`;
+
+        return `
+      <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="article-card" data-source="${article.sourceId}">
+        ${thumbHtml}
+        <div class="article-content">
+          <div class="article-source">${article.sourceName}</div>
+          <h3 class="article-title">${article.title}</h3>
+          <p class="article-desc">${desc}${desc.length >= 200 ? "..." : ""}</p>
+          <div class="article-meta">
+            <span>${formatDate(article.pubDate)}</span>
+            <span class="article-tag-ia">${tagLabel}</span>
+          </div>
+        </div>
+      </a>
+    `;
       }
 
+      // Affiche les articles filtrés
       function renderArticles() {
         const grid = document.getElementById("veilleGrid");
         const empty = document.getElementById("veilleEmpty");
-        const filtered =
-          currentFilter === "all"
-            ? allArticles
-            : allArticles.filter((a) => a.sourceId === currentFilter);
+
+        let filtered = allArticles;
+        if (currentFilter !== "all") {
+          filtered = allArticles.filter((a) => a.sourceId === currentFilter);
+        }
+
         if (filtered.length === 0) {
           grid.innerHTML = "";
           grid.style.display = "none";
           empty.style.display = "block";
           return;
         }
+
         grid.style.display = "grid";
         empty.style.display = "none";
         grid.innerHTML = filtered.map(renderArticle).join("");
       }
 
-      function updateStatus(msg, state = "loading") {
-        document.querySelector("#veilleStatus .status-dot").className =
+      // Met à jour le statut affiché
+      function updateStatus(message, state = "loading") {
+        const dot = document.querySelector("#veilleStatus .status-dot");
+        const text = document.getElementById("statusText");
+        text.textContent = message;
+        dot.className =
           "status-dot" +
           (state === "loading"
             ? " loading"
             : state === "error"
               ? " error"
               : "");
-        document.getElementById("statusText").textContent = msg;
       }
 
+      // Affiche des skeletons pendant le chargement
       function showSkeletons() {
-        document.getElementById("veilleGrid").innerHTML = Array(6)
+        const grid = document.getElementById("veilleGrid");
+        grid.innerHTML = Array(6)
           .fill('<div class="article-skeleton"></div>')
           .join("");
       }
 
+      // Récupère un flux RSS via l'API rss2json
       async function fetchRSS(source) {
         try {
-          const r = await fetch(source.api);
-          const d = await r.json();
-          if (d.status !== "ok") throw new Error("RSS error");
-          return d.items.map((item) => ({
+          const response = await fetch(source.api);
+          const data = await response.json();
+          if (data.status !== "ok") throw new Error("RSS feed error");
+
+          return data.items.map((item) => ({
             ...item,
             sourceId: source.id,
             sourceName: source.name,
           }));
-        } catch (e) {
-          console.warn(`Erreur ${source.name}:`, e);
+        } catch (err) {
+          console.warn(`Erreur lors du chargement de ${source.name}:`, err);
           return [];
         }
       }
 
+      // Charge tous les flux et filtre
       async function loadAllFeeds() {
-        updateStatus("Chargement des flux RSS...", "loading");
+        updateStatus("Chargement des flux RSS en cours...", "loading");
         showSkeletons();
+
         const results = await Promise.all(RSS_SOURCES.map(fetchRSS));
         const merged = results.flat();
+
+        // Filtrage par mots-clés IA + montage
         allArticles = merged
-          .filter(isRelevant)
+          .filter((a) => isRelevant(a, a.sourceId))
           .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
-          .slice(0, 12);
+          .slice(0, 12); // max 12 articles
+
         if (allArticles.length === 0) {
           updateStatus(
-            `Aucun article trouvé · ${merged.length} analysés`,
+            `Aucun article correspondant trouvé · ${merged.length} articles analysés`,
             "error"
           );
         } else {
@@ -2085,9 +2396,11 @@
             "ok"
           );
         }
+
         renderArticles();
       }
 
+      // Gestion des boutons de filtre source
       document.querySelectorAll(".filter-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           document
@@ -2099,6 +2412,7 @@
         });
       });
 
+      // Lance le chargement au démarrage
       loadAllFeeds();
     </script>
   </body>
