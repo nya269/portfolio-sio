@@ -955,7 +955,9 @@
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
-        transition: border-color 0.3s, transform 0.3s;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
       }
 
       .contact-card:hover {
@@ -1009,8 +1011,12 @@
 
       .contact-card.highlight {
         grid-column: 1 / -1;
-        background: linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(34,211,238,0.05) 100%);
-        border-color: rgba(139,92,246,0.3);
+        background: linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.08) 0%,
+          rgba(34, 211, 238, 0.05) 100%
+        );
+        border-color: rgba(139, 92, 246, 0.3);
         flex-direction: row;
         align-items: center;
         gap: 2rem;
@@ -1024,8 +1030,8 @@
       }
 
       .contact-card.highlight .contact-card-icon {
-        background: rgba(139,92,246,0.15);
-        border-color: rgba(139,92,246,0.3);
+        background: rgba(139, 92, 246, 0.15);
+        border-color: rgba(139, 92, 246, 0.3);
         width: 56px;
         height: 56px;
         border-radius: 16px;
@@ -1562,16 +1568,16 @@
           <div class="detail-card">
             <div class="detail-header">
               <h3 class="detail-title">Expérience professionnelle</h3>
-              <span class="detail-ref">STAGE</span>
+              <span class="detail-ref">ALTERNANCE</span>
             </div>
             <div class="detail-field">
               <div class="detail-field-label">
                 ◆ Carrefour — Service décoration
               </div>
               <div class="detail-field-value filled">
-                Stage en entreprise effectué dans un magasin Carrefour, au sein
-                du service décoration. Mission de création de supports visuels
-                pour les opérations promotionnelles.
+                Alternace en entreprise effectué dans un magasin Carrefour, au
+                sein du service décoration. Mission de création de supports
+                visuels pour les opérations promotionnelles.
               </div>
             </div>
             <div class="detail-field">
@@ -1810,8 +1816,8 @@
               <p class="project-desc">
                 Création de plus de 10 affiches promotionnelles pour le service
                 décoration de Carrefour, en respectant rigoureusement la charte
-                graphique de l'enseigne. Mission menée dans le cadre d'un stage
-                en entreprise.
+                graphique de l'enseigne. Mission menée dans le cadre d'une
+                alternance en entreprise.
               </p>
               <div class="project-tags">
                 <span class="project-tag">Canva</span>
@@ -2052,8 +2058,8 @@
             <div class="detail-field">
               <div class="detail-field-label">◆ Contexte</div>
               <div class="detail-field-value filled">
-                Stage en entreprise effectué chez Carrefour, au sein du service
-                décoration. Le magasin avait besoin de supports visuels
+                Alternant en entreprise effectué chez Carrefour, au sein du
+                service décoration. Le magasin avait besoin de supports visuels
                 percutants pour mettre en avant les opérations promotionnelles
                 auprès des clients.
               </div>
@@ -2182,63 +2188,132 @@
             <span class="italic">ensemble.</span>
           </h2>
           <p class="section-subtitle">
-            Mon profil GitHub et mes projets open source sont accessibles ci-dessous.
-            N'hésitez pas à explorer mon code ou à me contacter.
+            Mon profil GitHub et mes projets open source sont accessibles
+            ci-dessous. N'hésitez pas à explorer mon code ou à me contacter.
           </p>
         </div>
 
         <div class="contact-grid fade-up">
-
           <!-- GitHub profil -->
-          <a href="https://github.com/nya269" target="_blank" rel="noopener noreferrer" class="contact-card highlight">
+          <a
+            href="https://github.com/nya269"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card highlight"
+          >
             <div class="contact-card-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                />
               </svg>
             </div>
             <div class="contact-card-body">
               <div class="contact-card-label">GitHub · Profil</div>
               <div class="contact-card-title">nya269</div>
-              <div class="contact-card-desc">Retrouvez l'ensemble de mes dépôts, projets personnels et contributions open source.</div>
+              <div class="contact-card-desc">
+                Retrouvez l'ensemble de mes dépôts, projets personnels et
+                contributions open source.
+              </div>
               <div class="contact-card-link">
                 github.com/nya269
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
               </div>
             </div>
           </a>
 
           <!-- Projet Event -->
-          <a href="https://github.com/nya269/event" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <a
+            href="https://github.com/nya269/event"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-card"
+          >
             <div class="contact-card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
               </svg>
             </div>
             <div class="contact-card-label">GitHub · Projet</div>
             <div class="contact-card-title">EventHub</div>
-            <div class="contact-card-desc">API REST et interface web pour la gestion d'événements — Node.js, Express, MySQL, React.</div>
+            <div class="contact-card-desc">
+              API REST et interface web pour la gestion d'événements — Node.js,
+              Express, MySQL, React.
+            </div>
             <div class="contact-card-link">
               github.com/nya269/event
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
             </div>
           </a>
 
           <!-- Email -->
           <a href="mailto:nyainssafsaid@gmail.com" class="contact-card">
             <div class="contact-card-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <polyline points="2,4 12,13 22,4" />
               </svg>
             </div>
             <div class="contact-card-label">Email · Contact direct</div>
             <div class="contact-card-title">Me contacter</div>
-            <div class="contact-card-desc">Pour toute opportunité, stage ou collaboration, envoyez-moi un message.</div>
+            <div class="contact-card-desc">
+              Pour toute opportunité, stage ou collaboration, envoyez-moi un
+              message.
+            </div>
             <div class="contact-card-link">
               nyainssafsaid@gmail.com
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
             </div>
           </a>
-
         </div>
       </div>
     </section>
